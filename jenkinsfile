@@ -1,0 +1,23 @@
+pipeline
+{
+agents any
+stages
+{
+stage ('SCM checkout')
+{
+    steps
+    {
+        git 'https://github.com/Bhupivaidya/jenkinsfile.git'
+    }
+}
+stage ('compile source code')
+{
+    step {
+        withMaven(jdk: 'myjdk', maven: 'mymaven') {
+    sh 'mvn compile'
+}
+    }
+}
+
+}
+}
