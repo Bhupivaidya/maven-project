@@ -12,7 +12,7 @@ stage('SCM checkout')
 }
 stage('compile source code')
 {
-    step {
+    steps {
         withMaven(jdk: 'myjdk', maven: 'mymaven') {
     sh 'mvn compile'
 }
