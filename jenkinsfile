@@ -3,7 +3,7 @@ pipeline
 agent any
 stages
 {
-    {
+    
 stage ('scm checkout')
 {
 steps{  
@@ -22,4 +22,4 @@ withMaven(jdk: 'myjdk', maven: 'mymaven') {
 }
 }
 }
-}
+
