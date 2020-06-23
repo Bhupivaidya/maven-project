@@ -3,21 +3,21 @@ pipeline
 agent any
 stages
 {
-stage('SCM checkout')
+stage ('scm checkout')
 {
-    steps
-    {
-        git 'https://github.com/Bhupivaidya/jenkinsfile.git'
-    }
+steps{  
+git 'https://github.com/Bhupivaidya/maven-project.git'
 }
-stage('compile source code')
+}
 {
-    steps {
-        withMaven(jdk: 'myjdk', maven: 'mymaven') {
+stage ('compile source code')
+{
+steps{
+withMaven(jdk: 'myjdk', maven: 'mymaven') {
     sh 'mvn compile'
 }
-    }
 }
-
+}
+}
 }
 }
