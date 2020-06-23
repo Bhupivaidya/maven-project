@@ -10,7 +10,6 @@ steps{
 git 'https://github.com/Bhupivaidya/maven-project.git'
 }
 }
-{
 stage ('compile source code')
 {
 steps{
@@ -21,5 +20,5 @@ withMaven(jdk: 'myjdk', maven: 'mymaven') {
 }
 }
 }
-}
+
 
