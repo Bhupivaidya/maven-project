@@ -4,21 +4,27 @@ agent any
 stages
 {
     
-stage ('scm checkout')
-{
-steps{  
-git 'https://github.com/Bhupivaidya/maven-project.git'
+    stage ('scm checkout')
+        {
+            steps{  
+                git 'https://github.com/Bhupivaidya/maven-project.git'
+                }
+        }
+    stage ('compile source code')
+        {
+            steps{
+                withMaven(jdk: 'myjdk', maven: 'mymaven') {
+                sh 'mvn compile'
+                }
+                }   
+        }
+    stage ('test'){
+        steps{
+            withMaven(jdk: 'myjdk', maven: 'mymaven') {
+            sh 'mvn test'
+             }
+        }
+    }
+    
 }
 }
-stage ('compile source code')
-{
-steps{
-withMaven(jdk: 'myjdk', maven: 'mymaven') {
-    sh 'mvn compile'
-}
-}
-}
-}
-}
-
-
