@@ -14,7 +14,7 @@ stage ('build sonar')
 steps{
         withMaven(jdk: 'myjdk', maven: 'mymaven') {
                         withSonarQubeEnv('sonar') {
-                sh 'mvn clearn sonar:sonar package'
+                sh 'mvn clean sonar:sonar package'
 }
 }
 }
