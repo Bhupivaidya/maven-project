@@ -1,0 +1,23 @@
+pipeline
+{
+agent any
+stages
+{
+stage ('SCM checkout')
+{
+steps{
+    git branch: 'master' , url:'https://github.com/Bhupivaidya/maven-project.git'
+}
+}
+stage ('build sonar')
+{
+steps{
+        withMaven(jdk: 'myjdk', maven: 'mymaven') {
+                        withSonarQubeEnv(credentialsId: 'sonar') {
+                sh 'mvn clearn sonar:sonar package'
+}
+}
+}
+}
+}
+}
